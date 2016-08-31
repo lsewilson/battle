@@ -1,6 +1,4 @@
-require 'capybara/rspec'
-require 'selenium/webdriver'
-
+require 'spec_helper'
 
 feature 'Enter names' do
   scenario 'submitting names' do
