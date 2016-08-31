@@ -1,0 +1,15 @@
+
+require 'spec_helper'
+
+feature 'Enter name' do
+
+  scenario 'User adds name' do
+    visit '/'
+
+    fill_in('player_1', with: 'James')
+    fill_in('player_2', with: 'Laura')
+    click_button("Submit")
+
+    expect(page).to have_content('James vs Laura')
+  end
+end
