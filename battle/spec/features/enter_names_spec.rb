@@ -9,3 +9,10 @@ feature 'Enter names' do
     expect(page).to have_content 'Rosie vs. Tim'
   end
 end
+
+feature 'See hit points' do
+  scenario 'player 2 status' do
+    visit ('/progress')
+    expect(page).to have_content 'Hit points'
+  end
+end
