@@ -17,13 +17,21 @@ end
 feature 'Attack player' do
   scenario 'attack player 2' do
     sign_in_and_play
-    click_button 'Attack'
+    attack
     expect(page).to have_content 'You attacked player 2!'
   end
 
-  scenario 'reduce player 2 HP' do
+  scenario 'reduce player 1 HP' do
     sign_in_and_play
-    click_button 'Attack'
-    expect(page).to have_content 'Tim: 50HP'
+    attack
+    expect(page).to have_content 'Rosie: 50HP'
   end
+
+  scenario 'reduce player 1 and player 2 HP by 10' do
+    sign_in_and_play
+    attack
+    attack
+    expect(page).to have_content 'Rosie: 50HP'
+  end
+
 end

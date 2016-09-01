@@ -23,7 +23,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    $game.attack($game.player_2)
+    $game.attack($game.current_player)
     session[:message] = 'You attacked player 2!'
     redirect to '/fight'
   end
