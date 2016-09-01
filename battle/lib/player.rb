@@ -1,8 +1,11 @@
+# understands how to calculate hit points
+
 class Player
 
   INITIAL_HP = 60
 
-  def initialize(name)
+  def initialize(name, game = Game)
+    @game = game.new
     @name = name
     @hit_points = INITIAL_HP
   end
@@ -12,10 +15,6 @@ class Player
     name
   end
 
-  def attack(player)
-    player.receive_damage
-  end
-  
   def receive_damage
     @hit_points -= 10
   end
