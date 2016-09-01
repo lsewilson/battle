@@ -1,10 +1,10 @@
 require 'game'
 
 describe Game do
-  subject(:game) {described_class.new(:player_class1, :player_class2)}
+  subject(:game) {described_class.new(:player_class1, :player_class)}
 
-  let(:player_class1) {double :player_class1, new: tim}
-  let(:player_class2) {double :player_class2, new: matthew}
+  let(:player_1) {double :player_class1, new: tim}
+  let(:player_2) {double :player_class2, new: matthew}
   let(:tim) { double :tim, receive_damage: nil }
   let(:matthew) {double :matthew, receive_damage: nil}
 

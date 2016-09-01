@@ -17,9 +17,7 @@ class Battle < Sinatra::Base
   end
 
   get '/fight' do
-    @player_1_name = $game.player_1.return_player_name
-    @player_2_name = $game.player_2.return_player_name
-    @player_2_HP = $game.player_2.hit_points
+    @game = $game
     @message = session[:message]
     erb :fight
   end
