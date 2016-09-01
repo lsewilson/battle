@@ -12,7 +12,10 @@ end
 
 feature 'See hit points' do
   scenario 'player 2 status' do
-    visit ('/progress')
-    expect(page).to have_content 'Hit points'
+    visit ('/')
+    fill_in :player_1_name, with: 'Matthew'
+    fill_in :player_2_name, with: 'Tim'
+    click_button 'Submit'
+    expect(page).to have_content 'Tim: 60HP'
   end
 end

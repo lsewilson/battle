@@ -19,10 +19,6 @@ class Battle < Sinatra::Base
     erb :fight
   end
 
-  get '/progress' do
-    erb :progress
-  end
-
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
