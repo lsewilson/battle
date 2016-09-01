@@ -5,7 +5,7 @@ describe Game do
 
   let(:player_class1) {double :player_class1, new: tim}
   let(:player_class2) {double :player_class2, new: matthew}
-  let(:tim) { double :tim, receive_damage: nil }
+  let(:tim) { double :tim, receive_damage: nil, hit_points: 0 }
   let(:matthew) {double :matthew, receive_damage: nil}
 
   describe '#initialize' do
@@ -44,4 +44,10 @@ describe Game do
     end
   end
 
+  describe 'game over' do
+    it 'posts a game over message' do
+      game.attack(tim)
+      expect(game.game_over).to eq true
+    end
+  end
 end

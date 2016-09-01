@@ -18,13 +18,11 @@ class Battle < Sinatra::Base
 
   get '/fight' do
     @game = $game
-    @message = session[:message]
     erb :fight
   end
 
   post '/attack' do
     $game.attack($game.current_player)
-    session[:message] = 'You attacked player 2!'
     redirect to '/fight'
   end
 

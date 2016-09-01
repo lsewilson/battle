@@ -2,6 +2,7 @@
 
 class Player
 
+  attr_reader :name, :hit_points
   INITIAL_HP = 60
 
   def initialize(name)
@@ -16,9 +17,14 @@ class Player
 
   def receive_damage
     @hit_points -= 10
+    check_HP
   end
-  # private
 
-  attr_reader :name, :hit_points
+  private
+
+  def check_HP
+    'You lost' if @hit_points == 0
+  end
+
 
 end

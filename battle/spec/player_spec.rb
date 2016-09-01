@@ -24,4 +24,13 @@ describe Player do
       expect{player_two.receive_damage}.to change{player_two.hit_points}.by -10
     end
   end
+
+  describe 'losing game' do
+    context "when player has 0HP" do
+      it "returns a 'You lost' message" do
+        5.times {player_two.receive_damage}
+        expect(player_two.receive_damage).to eq 'You lost'
+      end
+    end
+  end
 end
