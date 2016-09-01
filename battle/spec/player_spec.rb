@@ -12,4 +12,15 @@ describe Player do
 
   end
 
+  describe 'initialize' do
+    it 'set HP to INITIAL_HP' do
+      expect(player_one.hit_points).to eq Player::INITIAL_HP
+    end
+  end
+
+  describe '#attack_damage' do
+    it 'reduces HP by 10' do
+      expect{player_one.attack_damage}.to change{player_one.hit_points}.by -10
+    end
+  end
 end
