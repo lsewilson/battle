@@ -15,9 +15,8 @@ describe Game do
 
   describe 'switch' do
     it 'switches the two players' do
-      g = player_2
-      game.switch(player_1, player_2)
-      expect(game.player_1).to eq(g)
+      game.switch
+      expect(game.attacker).to eq(player_2)
     end
   end
 

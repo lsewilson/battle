@@ -23,14 +23,9 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = $game
-    @game.attack(@game.player_2)
+    @game.attack(@game.opponent)
+    @game.switch
     erb :attack
-  end
-
-  get '/switch' do
-    @game = $game
-    @game.switch(@game.player_1, @game.player_2)
-    redirect '/play'
   end
 
 
