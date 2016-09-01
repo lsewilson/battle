@@ -9,9 +9,6 @@ class Player
     @hp = hp
   end
 
-  def attack(opponent)
-    opponent.receive_attack
-  end
 
   def receive_attack
     @hp -= 10
