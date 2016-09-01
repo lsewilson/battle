@@ -11,4 +11,9 @@ class Game
     opponent.receive_attack
   end
 
+  def switch(player_1, player_2)
+    @player_1 = player_2
+    @player_2 = player_1
+  end
+
 end
