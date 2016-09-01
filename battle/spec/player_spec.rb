@@ -2,7 +2,8 @@ require 'player'
 
 describe Player do
 
-  subject(:player_one) { described_class.new("Tim")}
+  subject(:player_one) { described_class.new("Tim") }
+  subject(:player_two) { described_class.new("Matthew") }
 
   describe '#return_player_name' do
 
@@ -18,9 +19,16 @@ describe Player do
     end
   end
 
-  describe '#attack_damage' do
+  describe '#attack' do
+    it 'damages player 1' do
+      expect(player_one).to receive(:receive_damage)
+      player_two.attack(player_one)
+    end
+  end
+
+  describe '#receive_damage' do
     it 'reduces HP by 10' do
-      expect{player_one.attack_damage}.to change{player_one.hit_points}.by -10
+      expect{player_two.receive_damage}.to change{player_two.hit_points}.by -10
     end
   end
 end

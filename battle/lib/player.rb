@@ -12,7 +12,11 @@ class Player
     name
   end
 
-  def attack_damage
+  def attack(player)
+    player.receive_damage
+  end
+  
+  def receive_damage
     @hit_points -= 10
   end
   # private
