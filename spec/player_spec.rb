@@ -2,12 +2,26 @@ require 'player'
 
 describe Player do
 
-  subject(:player){described_class.new("Laura")}
+  subject(:player1){described_class.new("Laura")}
+  subject(:player2){described_class.new("Joseph")}
 
   describe 'name method' do
     it 'should return its name' do
-      expect(player.name).to eq "Laura"
+      expect(player1.name).to eq "Laura"
     end
-
   end
+
+  describe '.attack' do
+    it 'attacks the opponent' do
+      expect(player2).to receive(:receive_attack)
+      player1.attack(player2)
+    end
+  end
+
+  describe '.receive_attack' do
+    it 'should decrease hp by 10' do
+      expect{player2.receive_attack}.to change{player2.hp}.by(-10)
+    end
+  end
+
 end
