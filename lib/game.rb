@@ -11,6 +11,4 @@ class Game
     opponent.receive_attack
   end
 
-
-
 end
