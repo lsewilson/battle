@@ -4,8 +4,7 @@ class Player
 
   INITIAL_HP = 60
 
-  def initialize(name, game = Game)
-    @game = game.new
+  def initialize(name)
     @name = name
     @hit_points = INITIAL_HP
   end
