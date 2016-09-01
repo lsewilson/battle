@@ -14,6 +14,14 @@ feature 'attack opponent' do
     expect(page).to have_content "Joseph: 90HP"
   end
 
+  scenario 'HP still decreases with attacks after switching' do
+    sign_in_and_play
+    click_button 'Attack'
+    click_button 'Switch'
+    click_button 'Attack'
+    expect(page).to have_content "Laura: 90HP"
+  end
+
 
 
 end
