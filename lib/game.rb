@@ -8,6 +8,14 @@ class Game
     @attacker = player_1
   end
 
+  def self.current_game
+    @game
+  end
+
+  def self.create(player_1, player_2, game_class = Game)
+    @game = game_class.new(player_1, player_2)
+  end
+
   def player_1
     @players.first
   end

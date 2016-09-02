@@ -8,6 +8,28 @@ describe Game do
   let(:player_2) { double :player, hp: 100 }
   let(:dead_player) { double :player, hp: 0 }
 
+  describe '.create' do
+    it 'initializes a new game instance' do
+      game_class = double(:Game)
+      expect(game_class).to receive(:new)
+
+      described_class.create(player_1, player_2, game_class)
+    end
+  end
+
+  describe '.current_game' do
+    it 'is nil before creation' do
+      expect(described_class.current_game).to be_nil
+    end
+
+    it 'returns a game instance' do
+      described_class.create(player_1, player_2)
+
+      expect(described_class.current_game).to respond_to(:player_1)
+      expect(described_class.current_game).to respond_to(:player_2)
+    end
+  end
+
   describe '#attack' do
     it 'attacks the opponent' do
       expect(player_2).to receive(:receive_attack)
