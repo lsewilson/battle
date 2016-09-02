@@ -1,13 +1,19 @@
 class Game
 
-  attr_reader :player_1, :player_2, :attacker, :opponent
+  attr_reader :attacker, :opponent
 
   def initialize(player_1, player_2)
-    @player_array = [player_1, player_2]
-    @player_1 = player_1
-    @player_2 = player_2
+    @players = [player_1, player_2]
     @opponent = player_2
     @attacker = player_1
+  end
+
+  def player_1
+    @players.first
+  end
+
+  def player_2
+    @players.last
   end
 
   def attack(opponent)
@@ -19,9 +25,13 @@ class Game
     @opponent = nemesis_of(@opponent)
   end
 
+  def game_over?
+    player_1.hp == 0 || player_2.hp == 0
+  end
+
 private
   def nemesis_of(attacker)
-    @player_array.reject{|player| player == attacker}.sample
+    @players.reject{|player| player == attacker}.sample
   end
 
 end
