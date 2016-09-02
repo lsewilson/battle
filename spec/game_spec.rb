@@ -12,7 +12,6 @@ describe Game do
     it 'initializes a new game instance' do
       game_class = double(:Game)
       expect(game_class).to receive(:new)
-
       described_class.create(player_1, player_2, game_class)
     end
   end
@@ -24,7 +23,6 @@ describe Game do
 
     it 'returns a game instance' do
       described_class.create(player_1, player_2)
-
       expect(described_class.current_game).to respond_to(:player_1)
       expect(described_class.current_game).to respond_to(:player_2)
     end
